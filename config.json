@@ -1,13 +1,13 @@
 {
-    "name": "WeeklyActuals",
+    "name": "DailyActuals",
     "className": "CustomApp",
     "server": "https://rally1.rallydev.com",
     "sdk": "1.32",
     "javascript": [
-        "WeeklyActuals.js",
+        "DailyActuals.js",
         "Utils.js"
     ],
     "css": [
-        "WeeklyActuals.css"
+        "DailyActuals.css"
     ]
 }
