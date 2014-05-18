@@ -1,11 +1,11 @@
 Rally Daily Actuals By Iteration
 ============
 
-![Title](https://raw.github.com/gviswa/DailyActuals/master/screenshots/title-screenshot.png)
+![Title](https://github.com/gviswa/DailyActuals/blob/master/screenshots/title-screenshot.png)
 
 ## Overview
 
-The Weekly Actuals Report app searches through the revisions of tasks, to see when the Actuals field was updated.
+The Weekly Actuals Report app searches through the revisions of tasks, to see when the Actuals field was updated. It summarizes the information iteration wise.
 
 
 
@@ -41,4 +41,4 @@ Available Rakefile tasks are:
 
 ## License
 
-WeeklyActuals is released under the MIT license. See the file [LICENSE](https://raw.github.com/RallyApps/WeeklyActuals/master/LICENSE) for the full text.
+DailyActuals is released under the MIT license. See the file [LICENSE](https://raw.github.com/RallyApps/WeeklyActuals/master/LICENSE) for the full text.
