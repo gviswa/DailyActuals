@@ -1,7 +1,7 @@
-Rally Week Actuals
+Rally Daily Actuals By Iteration
 ============
 
-![Title](https://raw.github.com/RallyApps/WeeklyActuals/master/screenshots/title-screenshot.png)
+![Title](https://raw.github.com/gviswa/DailyActuals/master/screenshots/title-screenshot.png)
 
 ## Overview
 
