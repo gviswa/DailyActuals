@@ -110,7 +110,7 @@ function DailyActuals() {
                 if (!owner) {
                     ownerName = "No Owner";
                 } else {
-                    ownerName = owner.DisplayName;
+                    ownerName = rev.User._refObjectName;
                 }
 
                 r = regExp1.exec(rev.Description);
@@ -254,7 +254,7 @@ function DailyActuals() {
         document.getElementById('user-table-div').innerHTML = tbl;
     }
 
-    function taskRow(task, effort, day) {
+    function taskRow(task, effort, day, modifyUser) {
         var ownerName;
 		if (!task.Owner) {
             ownerName = "No Owner";
@@ -264,10 +264,10 @@ function DailyActuals() {
 		var tbl = '';
 		
 		tbl += '<tr>';
-		tbl += '<td class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + task.FormattedID + '</td>';
-		tbl += '<td class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + task.Name + '</td>';
-		tbl += '<td class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + task.WorkProduct.FormattedID + '</td>';
-		tbl += '<td class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + task.WorkProduct.Name + '</td>';
+		tbl += '<td class="left">' + task.FormattedID + '</td>';
+		tbl += '<td class="left">' + task.Name + '</td>';
+		tbl += '<td class="left">' + task.WorkProduct.FormattedID + '</td>';
+		tbl += '<td class="left">' + task.WorkProduct.Name + '</td>';
 		tbl += '<td class="center"><table class="state-table"><tr>';
 		tbl += '<td class="none"><div>-</div></td>';
 		// defined state
@@ -306,7 +306,7 @@ function DailyActuals() {
 		tbl += '</tr></table></td>';
 		tbl += '<td class="center">' + ((effort.Actuals > 0) ? "+" : "") + effort.Actuals + '</td>';
 		tbl += '<td class="center">' + task.Project._refObjectName + '</td>';
-		tbl += '<td class="center">' + ownerName + '</td>';
+		tbl += '<td class="center">' + modifyUser + '</td>';
 		var date = new Date(day);
 		tbl += '<td class="center">' + date.toLocaleDateString() + '</td>';
 		tbl += '</tr>';
@@ -336,7 +336,7 @@ function DailyActuals() {
                 '<th class="left">Task ID</th><th class="left">Task Name</th>' +
 				'<th class="left">USM#</th><th class="left">USM Description</th>' +
                 '<th class="center">State</th><th class="center">Actuals</th>' +
-                '<th class="center">Project</th><th class="center">Owner</th>' +
+                '<th class="center">Project</th><th class="center">Added By</th>' +
 				'<th class="center">Date</th>' +
                 '</tr>';
 
@@ -363,7 +363,7 @@ function DailyActuals() {
 						var tasksOnDate = taskHash.get(tids[t2],userLoggedDatesArr[t4]);
 						for (var t5 in tasksOnDate) {
 							if(tasksOnDate.hasOwnProperty(t5)) {
-								tbl += taskRow(getTask(results.tasks,t5), tasksOnDate[t5], userLoggedDatesArr[t4]);
+								tbl += taskRow(getTask(results.tasks,t5), tasksOnDate[t5], userLoggedDatesArr[t4], tids[t2]);
 								taskCounter += 1;
 							}
 						}
